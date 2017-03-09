@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :sessions 
+  resources :sessions
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :categories, only: [:index,:show] do
+    resources :games, only: [:index, :show]
+  end
 end
