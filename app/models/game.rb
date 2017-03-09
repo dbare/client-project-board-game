@@ -4,4 +4,6 @@ class Game < ApplicationRecord
   has_many :users, through: :subscriptions
   has_many :comments
   has_many :votes, as: :voteable
+
+  validates :title, :description, presence: true
 end
