@@ -1,1 +1,17 @@
-new.html.erb
+
+
+<div>
+	<%=form_for @user do |f|%>
+		<ul>
+			<%@user.errors.full_messages.each do |error|%>
+				<li><%=error%></li>
+			<%end%>
+		</ul>
+		<br>
+		<%=f.label :username%>
+		<p><%=f.text_field :username, placeholder: "username"%></p>
+		<p><%=f.label :password%></p>
+		<p><%=f.password_field :password, placeholder: "password"%></p>
+		<%=f.submit value: "CREATE ACCOUNT"%>
+	<%end%>
+</div>
