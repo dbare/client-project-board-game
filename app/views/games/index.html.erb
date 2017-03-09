@@ -1,0 +1,7 @@
+<h1><%= @category.name %></h1>
+
+<ul>
+<% @games.each do |game| %>
+  <li><a href="<%= category_game_path(game) %>"><%= game.title %></a></li>
+<% end %>
+</ul>

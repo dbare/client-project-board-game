@@ -1,6 +1,6 @@
 <h2><%= @category.name %></h2>
 <ul>
 <% @category.games.each do |game| %>
-  <li><a href="categories/<%= @category.id %>/game/<%= game.id %>"><%= game.title %></a></li>
+  <li><a href="<%= category_game_path(@category, game) %>"><%= game.title %></a></li>
 <% end %>
 </ul>
