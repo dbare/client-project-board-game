@@ -1,4 +1,14 @@
-<h1><%= @game.title %></h1>
+
+<div class="row">
+  <div class="col m9">
+    <h1><%= @game.title %></h1>
+  </div>
+  <div class="col m3">
+    <br><br>
+    <%= render 'subscribe' %>
+  </div>
+</div>
+
 <p>Number of subscribers <%= @game.followers.length %></p>
 <p>Number of votes <%= @game.vote_total %> </p>
 <p><%= @game.description %></p>
