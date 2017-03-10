@@ -5,9 +5,9 @@
     <div class="row">
       <!-- Comment Vote Buttons -->
       <div class="col s1">
-        <%= button_to "Upvote", comment_upvote_path(comment) %>
-        <small>Total Votes: <%= comment.vote_total %></small>
-        <%= button_to "Downvote", comment_downvote_path(comment) %>
+        <%= button_to "Upvote", comment_upvote_path(comment), :class => "upvote" %>
+        <p class="flow-text"><%= comment.vote_total %></p>
+        <%= button_to "Downvote", comment_downvote_path(comment), :class => "downvote" %>
       </div>
       <!-- User Profile -->
       <div class="col s3">
