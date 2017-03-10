@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@followers = @user.followers
+		@subscriptions = @user.games
 	end 
 
 	private 
