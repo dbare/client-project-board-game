@@ -1,1 +1,18 @@
 <h1>Welcome <%=@user.username%></h1>
+
+<h3>Followers</h3>
+
+<% @followers.each do |follower|%>
+<ul>
+	<li><%= follower.username%></li>
+</ul>
+<% end %>
+<br>
+<br>
+<br>
+<h3>Game Subscriptions</h3>
+<% @subscriptions.each do |subscription| %>
+<ul>
+	<li><%= subscription.title %></li>
+</ul>
+<% end %>
