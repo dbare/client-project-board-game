@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   end
   post '/comments/:id/upvotes' => 'comments#upvote', as: :comment_upvote
   post '/comments/:id/downvotes' => 'comments#downvote', as: :comment_downvote
+
+  post '/follows/:id' => 'follows#user', as: :follows_user
 end
