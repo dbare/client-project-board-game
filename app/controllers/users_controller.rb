@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@followers = @user.followers
 		@subscriptions = @user.games
+		
 	end 
 
 	private 

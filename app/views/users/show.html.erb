@@ -4,7 +4,7 @@
 
 <% @followers.each do |follower|%>
 <ul>
-	<li><%= follower.username%></li>
+	<li><a href="<%= user_path(follower) %>"><%= follower.username%></a></li>
 </ul>
 <% end %>
 <br>
@@ -12,7 +12,7 @@
 <br>
 <h3>Game Subscriptions</h3>
 <% @subscriptions.each do |subscription| %>
-<ul>
-	<li><%= subscription.title %></li>
-</ul>
+	<ul>
+		<li><a href="<%= category_game_path(subscription.category, subscription) %>"><%= subscription.title %></a></li>
+	</ul>
 <% end %>
