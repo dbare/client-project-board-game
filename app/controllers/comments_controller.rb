@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def upvote
     @comment = Comment.find(params[:id])
+    @game = @comment.game 
     if current_user
       @comment.votes.create(user_id: current_user.id, value: 1)
       redirect_to category_game_path(@comment.game.category, @comment.game)
@@ -12,6 +13,7 @@ class CommentsController < ApplicationController
 
   def downvote
     @comment = Comment.find(params[:id])
+    @game = @comment.game 
     if current_user
       @comment.votes.create(user_id: current_user.id, value: -1)
       redirect_to category_game_path(@comment.game.category, @comment.game)
