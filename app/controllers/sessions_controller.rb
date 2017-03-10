@@ -4,13 +4,8 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		p "*********************************************"
-		p session_params
-		p "***************************************"
-		@user = User.find_by(username: session_params[:username])
-		p @user 
-		# p params_permit
-		if @user && @user.authenticate(session_params[:password])
+		@user = User.find_by(username: params[:username])
+		if @user && @user.authenticate(params[:password])
 			login(@user)
 			redirect_to user_path(@user)
 		else
@@ -23,12 +18,12 @@ class SessionsController < ApplicationController
 		redirect_to new_user_path
 	end
 
-	private
-	def session_params
-		session = {
-			username: params[:username],
-			password: params[:password]
-		}
-		# p params.require(:session).permit(:username)
-	end
+	# private
+	# def session_params
+	# 	session = {
+	# 		username: params[:username],
+	# 		password: params[:password]
+	# 	}
+	# 	# p params.require(:session).permit(:username)
+	# end
 end 
