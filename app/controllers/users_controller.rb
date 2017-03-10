@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		if @user.save!
+		if @user.save
 			login(@user)
 			redirect_to user_path(@user)
 		else
@@ -19,7 +19,10 @@ class UsersController < ApplicationController
 	end 
 
 	def show
-		@user = current_user
+		@user = User.find(params[:id])
+		@followers = @user.followers
+		@subscriptions = @user.games
+		
 	end 
 
 	private 

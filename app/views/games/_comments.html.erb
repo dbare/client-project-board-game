@@ -1,0 +1,28 @@
+<% @game.comments.each do |comment| %>
+  <!-- comment div-->
+  <div class="comment">
+    <!-- comment body-->
+    <div class="row">
+      <!-- Comment Vote Buttons -->
+      <div class="col s1">
+        <%= button_to "Upvote", comment_upvote_path(comment) %>
+        <small>Total Votes: <%= comment.vote_total %></small>
+        <%= button_to "Downvote", comment_downvote_path(comment) %>
+      </div>
+      <!-- User Profile -->
+      <div class="col s3">
+        <%= image_tag "no_image.png" %>
+        <p><%= link_to comment.user.username, user_path(comment.user) %></p>
+      </div>
+      <!-- Comment Body -->
+      <div class="col s8">
+        <p>"<%=comment.body%>"</p>
+        <% if current_user.id == comment.user_id %>
+          <!-- <%= link_to "Edit", edit_comment_path(comment), method: "put", action:"update" %> | -->
+          <%= link_to "Delete", comment_path(comment), method: "delete", action: "destroy" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr>
+<% end %>
