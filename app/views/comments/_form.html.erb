@@ -1,0 +1,6 @@
+<div class="row">
+<%= form_tag game_comments_path(@game) do %>
+  <div class="col s9">Add a Comment: <%= text_field_tag :comment%></div>
+  <div class="col s3"><%= submit_tag "Submit", :class => "btn" %></div>
+<% end %>
+</div>

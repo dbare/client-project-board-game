@@ -9,13 +9,15 @@
   </head>
 
   <body>
+    <%= link_to "Home", root_path %>
   	<% if current_user %>
   		<%= link_to "Logout", '/logout' %>
   	<% else %>
   		<%= link_to "Login", '/login' %>
   		<%= link_to "Signup", new_user_path %>
   	<% end %>
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
