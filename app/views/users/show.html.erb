@@ -1,11 +1,20 @@
 <% if @user == current_user%>
 	<h1>Your Profile</h1>
 <% else %>
-	<h1>Welcome to <%=@user.username%>'s Profile</h1>
-	<%= button_to "Follow #{@user.username}", follows_user_path(params[:id]) %>
+	<h1>Welcome to <%= @user.username%>'s Profile</h1>
+	<% current_user.followers.each do |user|%>
+		<% if user.id == @user.id %>
+		<% @a = 5 %>
+		<% end %>
+	<% end %>
+		<% if @a != 5 %>
+		<%= button_to "Follow #{@user.username}", follows_user_path(params[:id]) %>
+		<% else %>
+		<%= "You are following #{@user.username}"%>
+		<% end %>
 <% end %>
 
-<h3>Followers</h3>
+<h3>Following</h3>
 
 <% @followers.each do |follower|%>
 <ul>
