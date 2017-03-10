@@ -4,12 +4,16 @@
 <p><%= @game.description %></p>
 
 
+
 <h3>Comments</h3>
 
 <% @game.comments.each do |comment| %>
   <div class="comment">
     <p><a href="<%= user_path(comment.user) %>"><%= comment.user.username %></a>: "<%=comment.body%>"</p>
     <small>Total Votes: <%= comment.vote_total %></small>
+    <%= button_to "Upvote", comment_upvote_path(comment) %>
+    <%= button_to "Downvote", comment_downvote_path(comment) %>
   </div>
   <hr>
 <% end %>
+

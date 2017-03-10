@@ -2,5 +2,8 @@
 <ul>
 <% @category.games.each do |game| %>
   <li><a href="<%= category_game_path(@category, game) %>"><%= game.title %></a></li>
+  <small>Total Votes: <%= game.vote_total %></small>
+    <%= button_to "Upvote", game_upvote_path(game) %>
+    <%= button_to "Downvote", game_downvote_path(game) %>
 <% end %>
 </ul>
