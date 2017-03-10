@@ -1,4 +1,4 @@
-<% if current_subscription(@game).length > 0 %>
+<% if current_user && current_subscription(@game).length > 0 %>
   <%= button_to "Unsubscribe", subscription_path(current_subscription(@game).first), method: "delete", :class=> "btn-large red" %>
 <% else %>
   <%= button_to "Subscribe", game_subscriptions_path(@game), :class=> "btn-large blue" %>
