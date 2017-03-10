@@ -7,7 +7,7 @@
 		<% @a = 5 %>
 		<% end %>
 	<% end %>
-		<% if @a !s= 5 %>
+		<% if @a != 5 %>
 		<%= button_to "Follow #{@user.username}", follows_user_path(params[:id]) %>
 		<% else %>
 		<%= "You are following #{@user.username}"%>
