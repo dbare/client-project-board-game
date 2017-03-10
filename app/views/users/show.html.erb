@@ -2,7 +2,7 @@
 	<h1>Your Profile</h1>
 <% else %>
 	<h1>Welcome to <%=@user.username%>'s Profile</h1>
-	<%= button_to "Follow #{@user.username}", user_path() %>
+	<%= button_to "Follow #{@user.username}", follows_user_path(params[:id]) %>
 <% end %>
 
 <h3>Followers</h3>
