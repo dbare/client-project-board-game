@@ -17,7 +17,7 @@
       <!-- Comment Body -->
       <div class="col s8">
         <p>"<%=comment.body%>"</p>
-        <% if current_user.id == comment.user_id %>
+        <% if current_user && current_user.id == comment.user_id %>
           <!-- <%= link_to "Edit", edit_comment_path(comment), method: "put", action:"update" %> | -->
           <%= link_to "Delete", comment_path(comment), method: "delete", action: "destroy" %>
         <% end %>
