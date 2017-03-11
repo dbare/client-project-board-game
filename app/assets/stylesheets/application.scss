@@ -3,6 +3,27 @@
 *= require_self
 *= require_tree .
 */
-
-
 @import "materialize";
+
+
+body {
+  background: image-url("greyfloral.png");
+
+  .content{
+    padding: 20px;
+  }
+}
+
+.parallax-container {
+      min-height: 400px;
+}
+.game-link{
+  font-size: 26px;
+  line-height: 36px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-top: 20px;
+}
+.center{
+  text-align: center;
+}

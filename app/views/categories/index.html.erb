@@ -1,7 +1,23 @@
-<h1>Welcome Home</h1>
-
-<ul>
+<%= render 'categories/chessheader' %>
+<!-- <ul>
 <% @categories.each do |category| %>
   <li><a href="<%= category_path(category) %>"><%= category.name %></a></li>
 <% end %>
-</ul>
+</ul> -->
+
+
+
+<table class="striped responsive-table">
+    <thead>
+      <tr>
+          <th data-field="id">Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <% @categories.each do |category| %>
+          <td><a href="<%= category_path(category) %>"><%= category.name %></a></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>

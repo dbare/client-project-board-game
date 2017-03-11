@@ -1,7 +1,11 @@
 <% if current_user && @user == current_user%>
 	<h1>Your Profile</h1>
+	<%= image_tag "max.jpg" %>
 <% else %>
 	<h1>Welcome to <%= @user.username%>'s Profile</h1>
+	<%= image_tag "no_image.png" %>
+
+
 	<% if current_user %>
 		<% current_user.followers.each do |user|%>
 			<% if user.id == @user.id %>
