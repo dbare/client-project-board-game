@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :login, :logout, :current_subscription
 
+  def index
+    @parallax = true
+  end
+
   def login(user)
   	session[:user_id] = user.id
   end

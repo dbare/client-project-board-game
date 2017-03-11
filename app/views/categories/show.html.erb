@@ -1,9 +1,18 @@
+<div class="row">
 <h2><%= @category.name %></h2>
-<ul>
 <% @category.games.each do |game| %>
-  <li><a href="<%= category_game_path(@category, game) %>"><%= game.title %></a></li>
-  <small>Total Votes: <%= game.vote_total %></small>
-    <%= button_to "Upvote", game_upvote_path(game) %>
-    <%= button_to "Downvote", game_downvote_path(game) %>
+<div class="col m6">
+  <div class="row card grey lighten-3">
+    <div class="col m3">
+      <p class="center"><a href="<%= game_upvote_path(game) %>" rel="nofollow" data-method="post" class="btn"><i class="large material-icons">thumb_up</i></a></p>
+      <p class="center flow-text"><%= game.vote_total %></p>
+      <p class="center"><a href="<%= game_downvote_path(game) %>" rel="nofollow" data-method="post" class="btn"><i class="large material-icons">thumb_down</i></a></p>
+    </div>
+
+    <div class="col m9">
+      <a class="game-link" href="<%= category_game_path(@category, game) %>"><%= game.title %></a>
+    </div>
+  </div>
+</div>
 <% end %>
-</ul>
+</div>

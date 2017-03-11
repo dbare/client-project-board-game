@@ -4,19 +4,17 @@
     <title>BoardGame</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-  	<% if current_user %>
-  		<%= link_to "Logout", '/logout' %>
-  	<% else %>
-  		<%= link_to "Login", '/login' %>
-  		<%= link_to "Signup", new_user_path %>
-  	<% end %>
-    <div class="container">
-      <%= yield %>
-    </div>
+
+    <%= render 'layouts/navigation' %>
+    <main class="content white">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

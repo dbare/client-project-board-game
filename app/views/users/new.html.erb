@@ -1,10 +1,10 @@
 <div>
-	<% if flash[:notice].any? %>
+	<% if flash[:notice] %>
 		<div class="notice">
 			<%= flash[:notice] %>
 		</div>
 	<% end %>
-	
+
 	<%=form_for @user do |f|%>
 		<ul>
 			<%@user.errors.full_messages.each do |error|%>

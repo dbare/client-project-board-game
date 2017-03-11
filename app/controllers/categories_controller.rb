@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def index
+    @parallax = true
     @categories = Category.all
   end
 

@@ -4,18 +4,24 @@
     <!-- comment body-->
     <div class="row">
       <!-- Comment Vote Buttons -->
-      <div class="col s1">
-        <%= button_to "Upvote", comment_upvote_path(comment), :class => "upvote" %>
-        <p class="flow-text"><%= comment.vote_total %></p>
-        <%= button_to "Downvote", comment_downvote_path(comment), :class => "downvote" %>
+      <div class="col m2">
+
+                <p class="center"><a href="<%= comment_upvote_path(comment) %>" rel="nofollow" data-method="post" class="btn"><i class="large material-icons">thumb_up</i></a></p>
+                <p class="center flow-text"><%= comment.vote_total %></p>
+                <p class="center"><a href="<%= comment_downvote_path(comment) %>" rel="nofollow" data-method="post" class="btn"><i class="large material-icons">thumb_down</i></a></p>
+
       </div>
       <!-- User Profile -->
-      <div class="col s3">
-        <%= image_tag "no_image.png" %>
+      <div class="col m3">
+        <% if current_user && current_user.id == comment.user_id %>
+          <%= image_tag "max.jpg" %>
+        <% else %>
+          <%= image_tag "no_image.png" %>
+        <% end %>
         <p><%= link_to comment.user.username, user_path(comment.user) %></p>
       </div>
       <!-- Comment Body -->
-      <div class="col s8">
+      <div class="col m7">
         <p>"<%=comment.body%>"</p>
         <% if current_user && current_user.id == comment.user_id %>
           <!-- <%= link_to "Edit", edit_comment_path(comment), method: "put", action:"update" %> | -->
